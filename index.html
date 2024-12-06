@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Countdown Timer</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin-top: 50px;
+    }
+    #countdown {
+      font-size: 2rem;
+      color: #333;
+    }
+    #message {
+      font-size: 1.5rem;
+      color: green;
+    }
+  </style>
+</head>
+<body>
+  <h1>Countdown Timer</h1>
+  <div id="countdown"></div>
+  <div id="message"></div>
+
+  <script>
+    const countdownElement = document.getElementById('countdown');
+    const messageElement = document.getElementById('message');
+    
+    let count = 10;
+    
+
+    const interval = setInterval(() => {
+      countdownElement.textContent = `Time remaining: ${count}s`;
+      count--;
+
+      if (count < 0) {
+        clearInterval(interval); 
+        countdownElement.textContent = ''; 
+        messageElement.textContent = 'Time is up! 🎉'; 
+      }
+    }, 1000);
+  </script>
+</body>
+</html>
